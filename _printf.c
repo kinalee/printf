@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 	va_list print;
 	int i;
 	char *tmp;
+	char c;
 
 	i = 0;
 	va_start(print, format);
@@ -22,10 +23,11 @@ int _printf(const char *format, ...)
 		{
 			switch (format[i + 1])
 			{
-			/* temp code for character printer */
+
 			case 'c':
-				tmp[0] = va_arg(print, int);
-				char_printer(tmp[0]);
+				c = va_arg(print, int);
+				_putchar(c);
+				i += 2;
 				break;
 
 			case 's':
