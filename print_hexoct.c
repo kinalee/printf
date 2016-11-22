@@ -10,12 +10,9 @@ int print_octal(int number)
 {
 	int total = 0;
 	int copy = number;
-	int sign = 1;
-
 
 	if (copy < 0)
 	{
-		sign = -1;
 		copy *= -1;
 		total++;
 		_putchar('-');
@@ -85,11 +82,9 @@ int print_big_hex(int number)
 {
 	int total = 0;
 	int copy = number;
-	int sign = 1;
 
 	if (copy < 0)
 	{
-		sign = -1;
 		copy *= -1;
 		total++;
 		_putchar('-');
@@ -129,11 +124,9 @@ int print_small_hex(int number)
 {
 	int total = 0;
 	int copy = number;
-	int sign = 1;
 
 	if (copy < 0)
 	{
-		sign = -1;
 		copy *= -1;
 		total++;
 		_putchar('-');
