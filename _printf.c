@@ -11,6 +11,7 @@
 int _printf(const char *format, ...)
 {
 	va_list av;
+	char *str;
 	int i, len = 0;
 
 	va_start(av, format);
@@ -27,7 +28,13 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == '%')
 				len += _putchar(format[i + 1]);
 			else if (format[i + 1] == 's')
-				len += string_printer(va_arg(av, char *));
+			{
+				str = va_arg(av, char *);
+				if (str == NULL)
+					len += string_printer("(null)");
+				else
+					len += string_printer(str);
+			}
 			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
 				len += print_int(va_arg(av, int));
 			else
