@@ -28,7 +28,7 @@ int _printf(const char *format, ...)
 				len += _putchar('%');
 			else if (format[i + 1] == 's')
 				len += string_printer(va_arg(av, char *));
-			else if (format[i + 1] == 'd'|| format[i + 1] == 'i')
+			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
 				len += print_int(va_arg(av, int));
 			else
 				len += _putchar(format[i--]);
