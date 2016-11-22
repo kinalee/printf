@@ -7,7 +7,7 @@ int _putchar(char c);
 int string_printer(char *string);
 int _printf(const char *format, ...);
 int _strlen(char *str);
-int _numlen(int number);
+int _numlen(long number);
 int _atoi(char *str);
 int print_int(int number);
 /**

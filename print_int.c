@@ -21,10 +21,10 @@ int _strlen(char *str)
  * @number: the number to be measured
  * Return: int length of the number (the count of digits in number)
  */
-int _numlen(int number)
+int _numlen(long number)
 {
 	int length = 0;
-	long int digits = 1;
+	long digits = 1;
 
 	if (number == 0)
 		return (1);
@@ -66,39 +66,32 @@ int _atoi(char *str)
  */
 int print_int(int number)
 {
-	int length, flag;
-	int digits = 1;
+	long length;
+	long digits = 1;
 	int flag = 0;
+	long num = number;
 
-	if (number < 0)
+	if (num < 0)
 	{
-		number *= (-1);
+		num *= -1;
 		flag = 1;
 	}
-
-
-	flag = 0;
-	if (number < 0)
-	{
-		number *= -1;
-		flag = 1;
-	}
-	length = _numlen(number) - 1;
+	length = _numlen(num) - 1;
 	while (length > 0)
 	{
 		digits *= 10;
 		length--;
 	}
-	length = _numlen(number);
+	length = _numlen(num);
 	if (flag == 1)
 		_putchar('-');
 	while (length > 0)
 	{
-		_putchar(((number / digits) % 10) + '0');
+		_putchar(((num / digits) % 10) + '0');
 		digits /= 10;
 		length--;
 	}
-	length = _numlen(number);
+	length = _numlen(num);
 	if (flag == 1)
 		length++;
 	return (length);
