@@ -1,12 +1,17 @@
 #ifndef _HOLBERTON_H_
 #define _HOLBERTON_H_
 
-/* Prototype list */
+
 
 int _putchar(char c);
 int string_printer(char *string);
 int _printf(const char *format, ...);
-
+/**
+ * struct print_type - a struct to handle IDs and print types
+ * @c: char pointer to format type
+ * @fc: function pointer that prints strings
+ * @f: function pointer that prints chars
+ */
 typedef struct print_type
 {
 	char *c;

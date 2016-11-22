@@ -1,11 +1,16 @@
 #include <stdarg.h>
 #include "holberton.h"
 
+/**
+ * _printf - prints in a formatted fashion
+ * @format: string formatter to dictate print formats
+ * Return: total number of bytes printed
+ */
+
 int _printf(const char *format, ...)
 {
 	va_list av;
-	int i, j, len = 0;
-	char *str;
+	int i, len = 0;
 
 	va_start(av, format);
 	for (i = 0; format[i] != '\0'; i++)
