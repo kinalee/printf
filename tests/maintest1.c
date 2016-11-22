@@ -5,11 +5,11 @@
 int main(void)
 {
 	char *string = "This is a test string";
-	int count;
+	int count, number;
+	char c = 'C';
+	count = 5+-'d'+-c;
 
-	_printf("a%sb\n", "c");
-	_printf("THis is a string literal test\n");
-	_printf("A string conversion test: %s\n", string);
+	printf(c);
 
 	return (0);
 }

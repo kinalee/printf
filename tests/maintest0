@@ -1,0 +1,19 @@
+#include <stdarg.h>
+#include <stdio.h>
+#include "holberton.h"
+
+int main(void)
+{
+	char *string = "This is a test string";
+	int count;
+	char c = 'C';
+
+	_printf("This is a char var print: ab%c\n", c);
+	_printf("This is a char literal print: ab%c\n", 'c');
+	_printf("This prints the first char of a string: %c\n", string[0]);
+	_printf("This is a string literal test\n");
+	_printf("This is a % test 5%%\n");
+	count = _printf("A string conversion test: %s\n", string);
+
+	return (0);
+}
