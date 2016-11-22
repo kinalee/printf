@@ -24,7 +24,7 @@ int _strlen(char *str)
 int _numlen(int number)
 {
 	int length = 0;
-	int digits = 1;
+	long int digits = 1;
 
 	if (number == 0)
 		return (1);
@@ -66,9 +66,16 @@ int _atoi(char *str)
  */
 int print_int(int number)
 {
-	int length;
+	int length, flag;
 	int digits = 1;
 
+
+	flag = 0;
+	if (number < 0)
+	{
+		number *= -1;
+		flag = 1;
+	}
 	length = _numlen(number) - 1;
 	while (length > 0)
 	{
@@ -76,6 +83,8 @@ int print_int(int number)
 		length--;
 	}
 	length = _numlen(number);
+	if (flag == 1)
+		_putchar('-');
 	while (length > 0)
 	{
 		_putchar(((number / digits) % 10) + '0');
@@ -83,5 +92,7 @@ int print_int(int number)
 		length--;
 	}
 	length = _numlen(number);
+	if (flag == 1)
+		length++;
 	return (length);
 }
