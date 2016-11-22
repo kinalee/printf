@@ -32,7 +32,6 @@ int _printf(const char *format, ...)
 					break;
 				}
 			}
-
 			if (format[i + 1] == 'c')
 				len += _putchar(va_arg(av, int));
 			else if (format[i + 1] == '%')
