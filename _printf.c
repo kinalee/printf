@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 {
 	va_list av;
 	char *str;
-	int i, len = 0;
+	int i, j, len = 0;
 
 	va_start(av, format);
 	if (format == NULL)
@@ -23,6 +23,16 @@ int _printf(const char *format, ...)
 			len += _putchar(format[i]);
 		else
 		{
+			for (j = 0; format[i + j] != '\0'; ++j)
+			{
+				if (format[i + j] == 'd' || format[i + j] == 'i')
+				{
+					len += print_int(va_arg(av, int));
+					i += (j + 1);
+					break;
+				}
+			}
+
 			if (format[i + 1] == 'c')
 				len += _putchar(va_arg(av, int));
 			else if (format[i + 1] == '%')
@@ -35,8 +45,6 @@ int _printf(const char *format, ...)
 				else
 					len += string_printer(str);
 			}
-			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
-				len += print_int(va_arg(av, int));
 			else
 				len += _putchar(format[i--]);
 			i++;
