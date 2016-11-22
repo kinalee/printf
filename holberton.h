@@ -6,6 +6,10 @@
 int _putchar(char c);
 int string_printer(char *string);
 int _printf(const char *format, ...);
+int _strlen(char *str);
+int _numlen(int number);
+int _atoi(char *str);
+int print_int(int number);
 /**
  * struct print_type - a struct to handle IDs and print types
  * @c: char pointer to format type
