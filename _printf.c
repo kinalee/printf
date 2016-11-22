@@ -19,12 +19,12 @@ int _printf(const char *format, ...)
 			len += _putchar(format[i]);
 		else
 		{
-			if(format[i + 1] == 'c')
+			if (format[i + 1] == 'c')
 				len += _putchar(va_arg(av, int));
-			if(format[i + 1] == '%')
+			if (format[i + 1] == '%')
 				len += _putchar('%');
-			if(format[i + 1] == 's')
-				len+= string_printer(va_arg(av, char *));
+			if (format[i + 1] == 's')
+				len += string_printer(va_arg(av, char *));
 			i++;
 		}
 	}
