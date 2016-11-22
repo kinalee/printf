@@ -10,6 +10,7 @@ int _strlen(char *str);
 int _numlen(long number);
 int _atoi(char *str);
 int print_int(int number);
+int print_octal(int number);
 /**
  * struct print_type - a struct to handle IDs and print types
  * @c: char pointer to format type
