@@ -65,9 +65,10 @@ int _atoi(char *str)
  */
 int print_int(long long int number)
 {
-	char string[] = {'\0','\0','\0','\0','\0','\0','\0','\0','\0',
-			    '\0','\0', '\0'};
+	char string[] = {'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',
+			 '\0', '\0', '\0', '\0'};
 	char *str;
+
 	str = _itoa(number, string);
 	return (string_printer(str));
 }

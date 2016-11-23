@@ -2,15 +2,16 @@
 #include "holberton.h"
 
 /**
- * itoa - converts an integer into a string
+ * _itoa - converts an integer into a string
  * @number: number to convert
+ * @stringnum: pointer to the string that will store the num
  * Return: pointer to char array
  */
 char *_itoa(long long int number, char *stringnum)
 {
 	int length, i;
-
 	long long int copy = number;
+
 	if (number < 0)
 		copy *= -1;
 	length = _numlen(number);
@@ -19,13 +20,13 @@ char *_itoa(long long int number, char *stringnum)
 		i = length;
 	while (copy > 0 && i >= 0)
 	{
-		stringnum[i] = (copy % 10) + '0' ;
+		stringnum[i] = (copy % 10) + '0';
 		copy /= 10;
 		i--;
 	}
 	if (number < 0)
 		stringnum[0] = '-';
-	return(stringnum);
+	return (stringnum);
 }
 
 /**
@@ -36,15 +37,15 @@ char *_itoa(long long int number, char *stringnum)
 int print_octal(unsigned int number)
 {
 	int length, i;
-	char stringnum[] = {'\0','\0','\0','\0','\0','\0','\0','\0','\0',
-			    '\0','\0', '\0'};
+	char stringnum[] = {'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',
+			    '\0', '\0', '\0', '\0'};
 	unsigned int copy = number;
 
 	length = _numlen(number);
 	i = length - 1;
 	while (copy > 0 && i >= 0)
 	{
-		stringnum[i] = (copy % 8) + '0' ;
+		stringnum[i] = (copy % 8) + '0';
 		copy /= 8;
 		i--;
 	}
@@ -96,15 +97,9 @@ int print_big_hex(unsigned int number)
 	int total = 0;
 	unsigned int copy = number;
 
-	if (copy < 0)
-	{
-		copy *= -1;
-		total++;
-		_putchar('-');
-	}
 	if (copy < 16)
 	{
-		if (copy >= 0 && copy <= 9)
+		if (copy <= 9)
 			_putchar('0' + copy);
 		else if (copy >= 10 && copy <= 15)
 			hex_handler(copy, 0);
@@ -118,7 +113,7 @@ int print_big_hex(unsigned int number)
 		copy -= 16;
 		if (copy < 16)
 		{
-			if (copy >= 0 && copy <= 9)
+			if (copy <= 9)
 				_putchar('0' + copy);
 			else if (copy >= 10 && copy <= 15)
 				hex_handler(copy, 0);
@@ -138,15 +133,9 @@ int print_small_hex(unsigned int number)
 	int total = 0;
 	unsigned int copy = number;
 
-	if (copy < 0)
-	{
-		copy *= -1;
-		total++;
-		_putchar('-');
-	}
 	if (copy < 16)
 	{
-		if (copy >= 0 && copy <= 9)
+		if (copy <= 9)
 			_putchar('0' + copy);
 		else if (copy >= 10 && copy <= 15)
 			hex_handler(copy, 32);
@@ -160,7 +149,7 @@ int print_small_hex(unsigned int number)
 		copy -= 16;
 		if (copy < 16)
 		{
-			if (copy >= 0 && copy <= 9)
+			if (copy <= 9)
 				_putchar('0' + copy);
 			else if (copy >= 10 && copy <= 15)
 				hex_handler(copy, 32);
