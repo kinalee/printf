@@ -28,16 +28,15 @@ int _numlen(long number)
 
 	if (number == 0)
 		return (1);
-
+	if (!(number % 10))
+		length++;
 	if (number < 0)
 		number *= -1;
-
 	while (number > digits)
 	{
 		digits *= 10;
 		length++;
 	}
-
 	return (length);
 }
 /**
@@ -64,35 +63,11 @@ int _atoi(char *str)
  * @number: the number to be printed
  * Return: int length of number
  */
-int print_int(int number)
+int print_int(long long int number)
 {
-	long length;
-	long digits = 1;
-	int flag = 0;
-	long num = number;
-
-	if (num < 0)
-	{
-		num *= -1;
-		flag = 1;
-	}
-	length = _numlen(num) - 1;
-	while (length > 0)
-	{
-		digits *= 10;
-		length--;
-	}
-	length = _numlen(num);
-	if (flag == 1)
-		_putchar('-');
-	while (length > 0)
-	{
-		_putchar(((num / digits) % 10) + '0');
-		digits /= 10;
-		length--;
-	}
-	length = _numlen(num);
-	if (flag == 1)
-		length++;
-	return (length);
+	char string[] = {'\0','\0','\0','\0','\0','\0','\0','\0','\0',
+			    '\0','\0', '\0'};
+	char *str;
+	str = _itoa(number, string);
+	return (string_printer(str));
 }
