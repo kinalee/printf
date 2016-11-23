@@ -10,10 +10,10 @@ int _strlen(char *str);
 int _numlen(long number);
 int _atoi(char *str);
 int print_int(int number);
-int print_octal(int number);
+int print_octal(unsigned int number);
 void hex_handler(int copy, int lowercase);
-int print_small_hex(int number);
-int print_big_hex(int number);
+int print_small_hex(unsigned int number);
+int print_big_hex(unsigned int number);
 /**
  * struct print_type - a struct to handle IDs and print types
  * @c: char pointer to format type

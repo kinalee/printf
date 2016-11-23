@@ -6,37 +6,23 @@
  * @number: number to convert
  * Return: int count of chars printed
  */
-int print_octal(int number)
+int print_octal(unsigned int number)
 {
-	int total = 0;
-	int copy = number;
+	int length, i;
+	char stringnum[] = {'\0','\0','\0','\0','\0','\0','\0','\0','\0',
+			     '\0','\0'};
+	unsigned int copy = number;
 
-	if (copy < 0)
+	length = _numlen(number);
+	i = length - 1;
+	while (copy > 0 && i >= 0)
 	{
-		copy *= -1;
-		total++;
-		_putchar('-');
+		stringnum[i] = (copy % 8) + '0' ;
+		copy /= 8;
+		i--;
 	}
-	if (copy < 8)
-	{
-		_putchar('0' + copy);
-		return (1);
-	}
-
-	else
-	{
-		while (copy > 8)
-		{
-			_putchar('1');
-			copy -= 8;
-			if (copy < 8)
-			{
-				_putchar('0' + copy);
-			}
-		}
-	}
-	total += _numlen(number);
-	return (total);
+	string_printer(stringnum);
+	return (length);
 }
 
 /**
@@ -78,10 +64,10 @@ void hex_handler(int copy, int lowercase)
  * @number: number to convert
  * Return: int count of chars printed
  */
-int print_big_hex(int number)
+int print_big_hex(unsigned int number)
 {
 	int total = 0;
-	int copy = number;
+	unsigned int copy = number;
 
 	if (copy < 0)
 	{
@@ -120,10 +106,10 @@ int print_big_hex(int number)
  * @number: number to convert
  * Return: int count of chars printed
  */
-int print_small_hex(int number)
+int print_small_hex(unsigned int number)
 {
 	int total = 0;
-	int copy = number;
+	unsigned int copy = number;
 
 	if (copy < 0)
 	{
