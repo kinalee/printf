@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 				else
 					len += string_printer(str);
 			}
-			if (format[i + 1] == 'd' || format[i + 1] == 'i')
+			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
 				len += print_int(va_arg(av, int));
 
 			else
